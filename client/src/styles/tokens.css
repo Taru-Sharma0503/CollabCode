@@ -1,0 +1,15 @@
+:root {
+  --color-bg-main: #101827;
+  --color-bg-card: #182438;
+  --color-bg-editor: #0B1220;
+  --color-border: #334155;
+  --color-border-hover: #26364D;
+  --color-text-main: #F1F5F9;
+  --color-text-muted: #94A3B8;
+  --color-accent: #6C8CFF;
+  --color-accent-hover: #5A78EA;
+  --color-success: #34D399;
+  --color-warning: #FBBF24;
+  --color-error: #F87171;
+  --radius-surface: 10px;
+}
