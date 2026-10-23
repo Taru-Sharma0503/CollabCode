@@ -17,7 +17,7 @@ export function getAccessToken() {
 }
 
 const apiClient = axios.create({
-  baseURL: '/api/v1',
+  baseURL: `${process.env.API_BASE_URL}/api/v1` || '/api/v1',
   withCredentials: true,
   headers: {
     'Content-Type': 'application/json'
