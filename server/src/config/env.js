@@ -1,5 +1,27 @@
+const path = require('path');
+const fs = require('fs');
 const dotenv = require('dotenv');
-dotenv.config();
+
+// Search candidate paths for .env so it resolves regardless of CWD
+const envCandidates = [
+  path.resolve(__dirname, '../../.env'), // server/.env
+  path.resolve(process.cwd(), 'server/.env'),
+  path.resolve(process.cwd(), '.env'),
+  path.resolve(__dirname, '../../../.env')
+];
+
+let envLoaded = false;
+for (const envPath of envCandidates) {
+  if (fs.existsSync(envPath)) {
+    dotenv.config({ path: envPath, override: true });
+    envLoaded = true;
+    break;
+  }
+}
+
+if (!envLoaded) {
+  dotenv.config({ override: true });
+}
 
 const env = {
   NODE_ENV: process.env.NODE_ENV || 'development',
